@@ -1,0 +1,1828 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Твои первые 100 000₽ | Дорожная карта к финансовой свободе</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FFD700;
+            --primary-dark: #E6C200;
+            --primary-light: #FFEE80;
+            --dark: #121212;
+            --darker: #0A0A0A;
+            --light: #F5F5F5;
+            --gray: #8A8A8A;
+            --card-bg: rgba(25, 25, 25, 0.95);
+            --card-border: rgba(255, 215, 0, 0.15);
+            --success: #4CAF50;
+            --gradient: linear-gradient(135deg, var(--primary), var(--primary-light));
+        }
+
+        body {
+            background: var(--darker);
+            font-family: "Inter", Arial, sans-serif;
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .page {
+            width: min(1100px, 92%);
+            margin: 0 auto;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section {
+            margin: 60px 0;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 40%, rgba(255, 215, 0, 0.1) 0%, transparent 60%);
+            z-index: -1;
+        }
+
+        .big-title {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+            text-align: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .big-title span.yellow {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .big-title span.yellow::after {
+            content: "";
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 215, 0, 0.3);
+            z-index: -1;
+            transform: skew(-15deg);
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+            text-align: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--gray);
+            font-weight: 400;
+            text-align: center;
+            width: 100%;
+        }
+
+        .author {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin: 2rem 0 3rem;
+            color: var(--gray);
+            text-align: center;
+            width: 100%;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--light);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: var(--primary);
+            color: var(--darker);
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 50px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .card {
+            background: linear-gradient(145deg, rgba(25,25,25,0.95), rgba(15,15,15,0.95));
+            border-radius: 25px;
+            padding: 50px 40px;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            width: 100%;
+            max-width: 700px;
+            opacity: 0;
+            transform: translateY(50px) rotateX(10deg);
+            animation: cardAppear 0.8s forwards;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+
+        @keyframes cardAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,215,0,0.1) 0%, transparent 50%, rgba(255,215,0,0.05) 100%);
+            z-index: -1;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.15), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .card:hover::after {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 215, 0, 0.3);
+            border-color: rgba(255, 215, 0, 0.4);
+        }
+
+        .card-glow {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: var(--gradient);
+            border-radius: 27px;
+            z-index: -2;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            filter: blur(15px);
+        }
+
+        .card:hover .card-glow {
+            opacity: 0.3;
+        }
+
+        .card-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            background: var(--gradient);
+            color: var(--darker);
+            border-radius: 50%;
+            font-weight: 900;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-icon::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .card:hover .card-icon {
+            transform: rotate(15deg) scale(1.1);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.6);
+        }
+
+        .card:hover .card-icon::before {
+            left: 100%;
+        }
+
+        .card h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 20px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+        .card h3::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.6s ease;
+            border-radius: 2px;
+        }
+
+        .card:hover h3::after {
+            width: 100%;
+        }
+
+        .card p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            transition: color 0.3s ease;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.7;
+        }
+
+        .card:hover p {
+            color: var(--light);
+        }
+
+        .card ul {
+            list-style: none;
+            text-align: left;
+            margin-top: 25px;
+        }
+
+        .card ul li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            color: var(--light);
+            transition: all 0.3s ease;
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+        }
+
+        .card ul li:hover {
+            transform: translateX(8px);
+            color: var(--primary);
+        }
+
+        .card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card ul li:hover:before {
+            transform: scale(1.3);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            color: var(--darker);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .card-time {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .card-progress {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .card-progress-bar {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 3px;
+            width: 0;
+            transition: width 1.5s ease;
+        }
+
+        .card:hover .card-progress-bar {
+            width: 100%;
+        }
+
+        .tariff-card {
+            background: linear-gradient(145deg, rgba(30,30,30,0.95), rgba(10,10,10,0.95));
+            border-radius: 25px;
+            padding: 50px 40px;
+            width: 100%;
+            max-width: 600px;
+            margin: 40px auto;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .tariff-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .tariff-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.05), transparent);
+            z-index: -1;
+        }
+
+        .tariff-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: var(--darker);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tariff-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .tariff-price {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--light);
+        }
+
+        .tariff-price span {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: var(--gray);
+        }
+
+        .tariff-features {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .tariff-features li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            color: var(--light);
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+
+        .tariff-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .video-container {
+            margin: 40px auto;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .video-container.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: none;
+        }
+
+        .app-description {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 700px;
+            border: 1px solid var(--card-border);
+            text-align: center;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .app-description.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .app-description p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 40px auto;
+            width: 100%;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            text-align: left;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .faq-item.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .faq-question {
+            padding: 20px 60px 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s ease;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+        }
+
+        .faq-question:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-question::after {
+            content: "+";
+            position: absolute;
+            right: 25px;
+            font-size: 24px;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.3s ease;
+            color: var(--gray);
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 25px 25px;
+            max-height: 500px;
+        }
+
+        .progress-tracker {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            position: relative;
+        }
+
+        .progress-tracker::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .progress-tracker::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: var(--primary);
+            transform: translateY(-50%);
+            z-index: 2;
+            transition: width 1s ease;
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 3;
+            cursor: pointer;
+        }
+
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .progress-step.active .step-circle {
+            background: var(--primary);
+            color: var(--darker);
+            transform: scale(1.1);
+        }
+
+        .progress-step.completed .step-circle {
+            background: var(--success);
+            color: white;
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .progress-step.active .step-label {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .testimonials-container {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+            width: 100%;
+            max-width: 1000px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary) var(--dark);
+        }
+
+        .testimonials-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .testimonials-container::-webkit-scrollbar-track {
+            background: var(--dark);
+            border-radius: 10px;
+        }
+
+        .testimonials-container::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 10px;
+        }
+
+        .testimonial {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            min-width: 300px;
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--darker);
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .testimonial-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-text {
+            color: var(--light);
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 50px 0;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+            color: var(--gray);
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        /* Новый стиль для полноразмерного заголовка */
+        .full-width-title {
+            width: 100%;
+            padding: 60px 20px;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Новые анимации */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes typewriter {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blinkCursor {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: var(--primary);
+            }
+        }
+
+        /* Применение новых анимаций */
+        .hero-section .big-title {
+            animation: fadeInUp 1s ease-out, float 6s ease-in-out infinite 1s;
+        }
+
+        .hero-section .subtitle {
+            animation: fadeInUp 1s ease-out 0.3s both, slideInFromLeft 1s ease-out 0.5s both;
+        }
+
+        .hero-section .author {
+            animation: fadeInUp 1s ease-out 0.6s both, slideInFromRight 1s ease-out 0.8s both;
+        }
+
+        .hero-section .btn {
+            animation: bounceIn 1s ease-out 1s both, pulse 2s infinite 2s;
+        }
+
+        .section-title {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .card-icon {
+            animation: bounceIn 0.8s ease-out both;
+        }
+
+        .progress-step.active .step-circle {
+            animation: pulse 2s infinite;
+        }
+
+        .tariff-card {
+            animation: bounceIn 1s ease-out both;
+        }
+
+        .testimonial {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        .stat-item {
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        /* Эффект печатной машинки для заголовка */
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid var(--primary);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typewriter 3s steps(40, end), blinkCursor 0.75s step-end infinite;
+        }
+
+        /* Анимация появления при скролле */
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Анимация для прогресс-бара */
+        .progress-fill {
+            width: 0;
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 3px;
+            transition: width 2s ease-in-out;
+        }
+
+        /* Анимация для счетчиков */
+        .counter {
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            .page {
+                padding: 40px 15px;
+            }
+            
+            .section {
+                margin: 40px 0;
+            }
+            
+            .card {
+                padding: 30px 20px;
+                max-width: 100%;
+            }
+            
+            .card-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+            
+            .tariff-card {
+                padding: 30px 20px;
+            }
+            
+            .tariff-title {
+                font-size: 2rem;
+            }
+            
+            .tariff-price {
+                font-size: 2.5rem;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+                margin-bottom: 15px;
+                font-size: 1rem;
+                padding: 16px 24px;
+            }
+            
+            .app-description {
+                padding: 30px 20px;
+            }
+            
+            .hero-section {
+                padding: 0 15px;
+            }
+            
+            .progress-tracker {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .progress-tracker::before, .progress-tracker::after {
+                display: none;
+            }
+            
+            .stats-container {
+                gap: 20px;
+            }
+            
+            .stat-item {
+                min-width: 120px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .card-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .testimonial {
+                min-width: 250px;
+            }
+            
+            .full-width-title {
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page {
+                padding: 30px 10px;
+            }
+            
+            .section {
+                margin: 30px 0;
+            }
+            
+            .card {
+                padding: 25px 15px;
+            }
+            
+            .card-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+            
+            .card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .card p {
+                font-size: 1rem;
+            }
+            
+            .card ul li {
+                font-size: 0.9rem;
+                padding-left: 25px;
+            }
+            
+            .card-number, .card-badge {
+                position: relative;
+                top: auto;
+                left: auto;
+                margin-bottom: 15px;
+                display: inline-block;
+            }
+            
+            .card-badge {
+                margin-right: 10px;
+            }
+            
+            .tariff-card {
+                padding: 25px 15px;
+            }
+            
+            .tariff-title {
+                font-size: 1.8rem;
+            }
+            
+            .tariff-price {
+                font-size: 2.2rem;
+            }
+            
+            .tariff-features li {
+                font-size: 0.9rem;
+                padding-left: 30px;
+            }
+            
+            .testimonial {
+                padding: 20px;
+                min-width: 220px;
+            }
+            
+            .testimonial-avatar {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .testimonial-info h4 {
+                font-size: 1.1rem;
+            }
+            
+            .testimonial-info p {
+                font-size: 0.8rem;
+            }
+            
+            .testimonial-text {
+                font-size: 0.9rem;
+            }
+            
+            .faq-question {
+                padding: 15px 50px 15px 20px;
+            }
+            
+            .faq-answer {
+                padding: 0 20px;
+            }
+            
+            .faq-item.active .faq-answer {
+                padding: 0 20px 20px;
+            }
+            
+            .stats-container {
+                gap: 15px;
+            }
+            
+            .stat-item {
+                min-width: 100px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .stat-label {
+                font-size: 0.9rem;
+            }
+            
+            .hero-section {
+                min-height: 90vh;
+            }
+            
+            .big-title {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .author {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HERO SECTION - всегда по центру экрана -->
+<div class="hero-section">
+    <div class="big-title fade-in-up">
+        Дорожная карта<br>
+        <span class="yellow">к первым 100 000₽</span>
+    </div>
+
+    <div class="subtitle fade-in-up">
+        5 практических шагов от хаоса в деньгах к созданию капитала
+    </div>
+
+    <div class="author fade-in-up">
+        Авторский гайд от <a href="#">SagaBlvck</a>
+    </div>
+
+    <div style="text-align: center; width: 100%;" class="fade-in-up">
+        <a href="https://t.me/blvck_on_blvck" class="btn">
+            <i class="fab fa-telegram"></i> Присоединиться к каналу
+        </a>
+    </div>
+</div>
+
+<!-- PROGRESS TRACKER -->
+<div class="page section">
+    <div class="full-width-title">
+        <h2 class="section-title fade-in-up">Ваш путь</h2>
+        <div class="subtitle fade-in-up">
+            5 простых шагов, которые приведут вас к первым 100 000 рублей
+        </div>
+    </div>
+    
+    <div class="progress-tracker" id="progressTracker">
+        <div class="progress-step active" data-step="1">
+            <div class="step-circle">1</div>
+            <div class="step-label">Диагностика</div>
+        </div>
+        <div class="progress-step" data-step="2">
+            <div class="step-circle">2</div>
+            <div class="step-label">Подушка</div>
+        </div>
+        <div class="progress-step" data-step="3">
+            <div class="step-circle">3</div>
+            <div class="step-label">Кредиты</div>
+        </div>
+        <div class="progress-step" data-step="4">
+            <div class="step-circle">4</div>
+            <div class="step-label">Доход</div>
+        </div>
+        <div class="progress-step" data-step="5">
+            <div class="step-circle">5</div>
+            <div class="step-label">Система</div>
+        </div>
+    </div>
+
+    <div class="cards-container">
+        <!-- STEP 1 -->
+        <div class="card scroll-animate">
+            <div class="card-glow"></div>
+            <div class="card-number">1</div>
+            <div class="card-badge">Обязательный</div>
+            <div class="card-content">
+                <div class="card-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Диагностика</h3>
+                <p>Самый неприятный, но самый важный шаг — увидеть правду о своих финансах и понять, куда именно утекают деньги.</p>
+                <ul>
+                    <li>Установить приложение учета расходов</li>
+                    <li>Записывать каждую трату 3–5 дней</li>
+                    <li>Выявить 3 основные зоны утечки</li>
+                    <li>Проанализировать ненужные подписки</li>
+                </ul>
+                <div class="card-progress">
+                    <div class="card-progress-bar"></div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-time">
+                        <i class="far fa-clock"></i> 1-2 недели
+                    </div>
+                    <div class="card-difficulty">
+                        Сложность: <span style="color: var(--primary)">Средняя</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="card scroll-animate">
+            <div class="card-glow"></div>
+            <div class="card-number">2</div>
+            <div class="card-badge">Безопасность</div>
+            <div class="card-content">
+                <div class="card-icon">
+                    <i class="fas fa-piggy-bank"></i>
+                </div>
+                <h3>Подушка безопасности</h3>
+                <p>Финансовая подушка 3–6 месяцев обязательных расходов снижает стресс и возвращает контроль над жизнью.</p>
+                <ul>
+                    <li>Определить сумму обязательных расходов</li>
+                    <li>Начать откладывать 10% от дохода</li>
+                    <li>Хранить в надежном и доступном месте</li>
+                    <li>Не трогать кроме экстренных случаев</li>
+                </ul>
+                <div class="card-progress">
+                    <div class="card-progress-bar"></div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-time">
+                        <i class="far fa-clock"></i> 3-6 месяцев
+                    </div>
+                    <div class="card-difficulty">
+                        Сложность: <span style="color: var(--primary)">Низкая</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="card scroll-animate">
+            <div class="card-glow"></div>
+            <div class="card-number">3</div>
+            <div class="card-badge">Освобождение</div>
+            <div class="card-content">
+                <div class="card-icon">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <h3>Кредитная яма</h3>
+                <p>Стратегия «Лавины»: сначала закрываем кредит с самой высокой процентной ставкой для максимальной экономии.</p>
+                <ul>
+                    <li>Составить список всех долгов</li>
+                    <li>Определить порядок погашения</li>
+                    <li>Переговорить с кредиторами о реструктуризации</li>
+                    <li>Избегать новых кредитов</li>
+                </ul>
+                <div class="card-progress">
+                    <div class="card-progress-bar"></div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-time">
+                        <i class="far fa-clock"></i> 3-12 месяцев
+                    </div>
+                    <div class="card-difficulty">
+                        Сложность: <span style="color: var(--primary)">Высокая</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="card scroll-animate">
+            <div class="card-glow"></div>
+            <div class="card-number">4</div>
+            <div class="card-badge">Рост</div>
+            <div class="card-content">
+                <div class="card-icon">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+                <h3>Дополнительный доход</h3>
+                <p>Даже маленький дополнительный доход способен существенно изменить финансовую траекторию и ускорить достижение целей.</p>
+                <ul>
+                    <li>Определить свои навыки для монетизации</li>
+                    <li>Найти подработку или фриланс</li>
+                    <li>Рассмотреть пассивные источники дохода</li>
+                    <li>Инвестировать в самообразование</li>
+                </ul>
+                <div class="card-progress">
+                    <div class="card-progress-bar"></div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-time">
+                        <i class="far fa-clock"></i> 1-3 месяца
+                    </div>
+                    <div class="card-difficulty">
+                        Сложность: <span style="color: var(--primary)">Средняя</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="card scroll-animate">
+            <div class="card-glow"></div>
+            <div class="card-number">5</div>
+            <div class="card-badge">Автоматизация</div>
+            <div class="card-content">
+                <div class="card-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3>Система</h3>
+                <p>Теперь у вас фундамент, на котором можно строить капитал и создавать финансовую независимость на долгие годы.</p>
+                <ul>
+                    <li>Автоматизировать накопления</li>
+                    <li>Составить инвестиционный план</li>
+                    <li>Регулярно пересматривать финансовые цели</li>
+                    <li>Масштабировать успешные стратегии</li>
+                </ul>
+                <div class="card-progress">
+                    <div class="card-progress-bar"></div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-time">
+                        <i class="far fa-clock"></i> Постоянно
+                    </div>
+                    <div class="card-difficulty">
+                        Сложность: <span style="color: var(--primary)">Низкая</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- STATS SECTION -->
+<div class="page section">
+    <div class="full-width-title">
+        <h2 class="section-title fade-in-up">Результаты учеников</h2>
+        <div class="subtitle fade-in-up">
+            Более 5 000 человек уже прошли этот путь
+        </div>
+    </div>
+    
+    <div class="stats-container">
+        <div class="stat-item scroll-animate">
+            <div class="stat-number counter" data-target="87">0</div>
+            <div class="stat-label">Увеличили доход</div>
+        </div>
+        <div class="stat-item scroll-animate">
+            <div class="stat-number counter" data-target="5000">0</div>
+            <div class="stat-label">Участников</div>
+        </div>
+        <div class="stat-item scroll-animate">
+            <div class="stat-number counter" data-target="63">0</div>
+            <div class="stat-label">Создали подушку</div>
+        </div>
+        <div class="stat-item scroll-animate">
+            <div class="stat-number">4.9/5</div>
+            <div class="stat-label">Оценка курса</div>
+        </div>
+    </div>
+</div>
+
+<!-- TESTIMONIALS SECTION -->
+<div class="page section">
+    <div class="full-width-title">
+        <h2 class="section-title fade-in-up">Отзывы участников</h2>
+        <div class="subtitle fade-in-up">
+            Реальные истории людей, изменивших свое финансовое положение
+        </div>
+    </div>
+    
+    <div class="testimonials-container">
+        <div class="testimonial scroll-animate">
+            <div class="testimonial-header">
+                <div class="testimonial-avatar">А</div>
+                <div class="testimonial-info">
+                    <h4>Анна, 28 лет</h4>
+                    <p>Маркетолог</p>
+                </div>
+            </div>
+            <div class="testimonial-text">
+                "За 4 месяца я не только закрыла все кредиты, но и накопила свою первую подушку безопасности. Теперь сплю спокойно!"
+            </div>
+        </div>
+        
+        <div class="testimonial scroll-animate">
+            <div class="testimonial-header">
+                <div class="testimonial-avatar">М</div>
+                <div class="testimonial-info">
+                    <h4>Максим, 32 года</h4>
+                    <p>Программист</p>
+                </div>
+            </div>
+            <div class="testimonial-text">
+                "Система из 5 шагов помогла мне структурировать финансы. Теперь я понимаю, куда уходят деньги и как их контролировать."
+            </div>
+        </div>
+        
+        <div class="testimonial scroll-animate">
+            <div class="testimonial-header">
+                <div class="testimonial-avatar">К</div>
+                <div class="testimonial-info">
+                    <h4>Ксения, 25 лет</h4>
+                    <p>Дизайнер</p>
+                </div>
+            </div>
+            <div class="testimonial-text">
+                "Благодаря дополнительным источникам дохода я увеличила заработок на 40%. Теперь откладываю на квартиру!"
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="https://your-web-app.com" class="btn">
+            <i class="fas fa-external-link-alt"></i> Все отзывы
+        </a>
+    </div>
+</div>
+
+<!-- VIDEO SECTION -->
+<div class="page section">
+    <div class="full-width-title">
+        <h2 class="section-title fade-in-up">Видеоурок: Психология денег</h2>
+        <div class="subtitle fade-in-up">
+            Пока человек не видит реальные цифры – он теряет деньги вслепую. Сначала мы наблюдаем, потом начинаем менять.
+        </div>
+    </div>
+
+    <div class="video-container scroll-animate" id="videoContainer">
+        <video width="100%" controls poster="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+            <source src="/videos/inf.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео тег.
+        </video>
+    </div>
+</div>
+
+<!-- WEB APP SECTION -->
+<div class="page section">
+    <div class="app-description scroll-animate" id="appDescription">
+        <p>Веб-приложение <strong>"Финансы на ладони"</strong> поможет вам наглядно увидеть, куда и в каких количествах утекают ваши деньги. Простой и понятный инструмент для анализа расходов и контроля финансов.</p>
+        <div style="text-align: center; margin-top: 25px;">
+            <a href="https://your-web-app.com" class="btn">
+                <i class="fas fa-external-link-alt"></i> Открыть веб-приложение
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- TARIFF SECTION -->
+<div class="page section">
+    <div class="full-width-title">
+        <h2 class="section-title fade-in-up">Выберите свой тариф</h2>
+        <div class="subtitle fade-in-up">
+            Инвестируйте в свое финансовое образование
+        </div>
+    </div>
+    
+    <div class="tariff-card scroll-animate" id="tariffCard">
+        <div class="tariff-badge">Популярный</div>
+        <h3 class="tariff-title">НЕОБХОДИМЫЙ</h3>
+        <div class="tariff-price">4 900₽ <span>/ навсегда</span></div>
+        <ul class="tariff-features">
+            <li>Полный доступ ко всем 5 шагам дорожной карты</li>
+            <li>3 дополнительных видеоурока по инвестициям</li>
+            <li>Шаблоны для ведения бюджета и финансового плана</li>
+            <li>Доступ к закрытому чату участников</li>
+            <li>Проверка вашего финансового плана экспертом</li>
+            <li>Доступ к будущим обновлениям курса</li>
+        </ul>
+        <div style="text-align: center;">
+            <a href="https://your-website.com/tariff" class="btn">
+                <i class="fas fa-shopping-cart"></i> Выбрать тариф
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ SECTION -->
+<div class="page section">
+    <div class="full-width-title">
+        <h2 class="section-title fade-in-up">Частые вопросы</h2>
+        <div class="subtitle fade-in-up">
+            Ответы на самые популярные вопросы о финансовом плане
+        </div>
+    </div>
+    
+    <div class="faq-container">
+        <div class="faq-item scroll-animate" id="faq1">
+            <div class="faq-question">Сколько времени займет выполнение всех шагов?</div>
+            <div class="faq-answer">
+                Это зависит от вашей текущей финансовой ситуации и дисциплины. В среднем, первые результаты появляются через 1-2 месяца, а полное выполнение плана занимает от 6 до 12 месяцев.
+            </div>
+        </div>
+        
+        <div class="faq-item scroll-animate" id="faq2">
+            <div class="faq-question">Что делать, если у меня очень маленький доход?</div>
+            <div class="faq-answer">
+                Начинать с того, что есть. Даже откладывая 5-10% от небольшого дохода, вы формируете привычку. Параллельно работайте над увеличением дохода через шаг 4.
+            </div>
+        </div>
+        
+        <div class="faq-item scroll-animate" id="faq3">
+            <div class="faq-question">Нужны ли специальные финансовые знания?</div>
+            <div class="faq-answer">
+                Нет, план построен так, чтобы его мог выполнить любой человек без специальной подготовки. Все шаги объясняются простым языком.
+            </div>
+        </div>
+        
+        <div class="faq-item scroll-animate" id="faq4">
+            <div class="faq-question">Что входит в тариф "НЕОБХОДИМЫЙ"?</div>
+            <div class="faq-answer">
+                Тариф включает полный доступ ко всем материалам курса, дополнительные видеоуроки, шаблоны для ведения финансов, доступ к закрытому чату и проверку вашего финансового плана экспертом.
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2025 Твои первые 100 000₽
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Анимация появления элементов при скролле
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                
+                // Для счетчиков
+                if (entry.target.classList.contains('counter')) {
+                    animateCounter(entry.target);
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Наблюдаем за элементами, которые должны появляться при скролле
+    const animatedElements = document.querySelectorAll('.scroll-animate, .counter');
+    animatedElements.forEach(el => observer.observe(el));
+
+    // FAQ functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+        });
+    });
+
+    // Плавное появление карточек при загрузке
+    const cards = document.querySelectorAll('.card');
+    cards.forEach((card, index) => {
+        card.style.animationDelay = `${0.1 + index * 0.1}s`;
+    });
+
+    // Добавляем анимацию для кнопок при загрузке
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach((btn, index) => {
+        btn.style.animation = `fadeInUp 0.8s ${0.5 + index * 0.1}s forwards`;
+        btn.style.opacity = '0';
+    });
+    
+    // Прогресс-трекер
+    const progressSteps = document.querySelectorAll('.progress-step');
+    const progressBar = document.querySelector('.progress-tracker::after');
+    
+    progressSteps.forEach(step => {
+        step.addEventListener('click', () => {
+            const stepNumber = parseInt(step.getAttribute('data-step'));
+            
+            // Обновляем активный шаг
+            progressSteps.forEach(s => s.classList.remove('active'));
+            step.classList.add('active');
+            
+            // Обновляем прогресс-бар
+            const progressPercentage = (stepNumber - 1) / (progressSteps.length - 1) * 100;
+            document.documentElement.style.setProperty('--progress-width', `${progressPercentage}%`);
+            
+            // Прокручиваем к соответствующей карточке
+            const targetCard = document.querySelectorAll('.card')[stepNumber - 1];
+            if (targetCard) {
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Добавляем подсветку для привлечения внимания
+                targetCard.style.boxShadow = '0 0 0 3px rgba(255, 215, 0, 0.5)';
+                setTimeout(() => {
+                    targetCard.style.boxShadow = '';
+                }, 2000);
+            }
+        });
+    });
+    
+    // Инициализация прогресс-бара
+    document.documentElement.style.setProperty('--progress-width', '0%');
+    
+    // Анимация счетчиков
+    function animateCounter(counter) {
+        const target = parseInt(counter.getAttribute('data-target'));
+        let current = 0;
+        const increment = target / 50;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            counter.textContent = Math.floor(current).toLocaleString();
+        }, 30);
+    }
+        
+    // Анимация при наведении на карточки
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            const progressBar = card.querySelector('.card-progress-bar');
+            if (progressBar) {
+                progressBar.style.width = '100%';
+            }
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            const progressBar = card.querySelector('.card-progress-bar');
+            if (progressBar) {
+                progressBar.style.width = '0';
+            }
+        });
+    });
+    
+    // Анимация для иконок в карточках
+    const cardIcons = document.querySelectorAll('.card-icon');
+    cardIcons.forEach(icon => {
+        icon.addEventListener('mouseenter', () => {
+            icon.style.transform = 'rotate(15deg) scale(1.1)';
+        });
+        
+        icon.addEventListener('mouseleave', () => {
+            icon.style.transform = 'rotate(0) scale(1)';
+        });
+    });
+    
+    // Анимация для заголовков секций
+    const sectionTitles = document.querySelectorAll('.section-title');
+    sectionTitles.forEach(title => {
+        title.style.animation = 'fadeInUp 1s ease-out';
+    });
+});
+</script>
+
+</body>
+</html>
