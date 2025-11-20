@@ -717,52 +717,6 @@
             transition: width 1s ease;
         }
 
-        .progress-step {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 3;
-            cursor: pointer;
-        }
-
-        .step-circle {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .progress-step.active .step-circle {
-            background: var(--primary);
-            color: var(--darker);
-            transform: scale(1.1);
-        }
-
-        .progress-step.completed .step-circle {
-            background: var(--success);
-            color: white;
-        }
-
-        .step-label {
-            font-size: 0.9rem;
-            color: var(--gray);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .progress-step.active .step-label {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
         .testimonials-container {
             display: flex;
             gap: 30px;
@@ -1013,10 +967,6 @@
 
         .card-icon {
             animation: bounceIn 0.8s ease-out both;
-        }
-
-        .progress-step.active .step-circle {
-            animation: pulse 2s infinite;
         }
 
         .tariff-card {
@@ -1310,30 +1260,7 @@
     <div class="full-width-title">
         <h2 class="section-title fade-in-up">Ваш путь</h2>
         <div class="subtitle fade-in-up">
-            5 простых шагов, которые приведут вас к первым 100 000 рублей
-        </div>
-    </div>
-    
-    <div class="progress-tracker" id="progressTracker">
-        <div class="progress-step active" data-step="1">
-            <div class="step-circle">1</div>
-            <div class="step-label">Диагностика</div>
-        </div>
-        <div class="progress-step" data-step="2">
-            <div class="step-circle">2</div>
-            <div class="step-label">Подушка</div>
-        </div>
-        <div class="progress-step" data-step="3">
-            <div class="step-circle">3</div>
-            <div class="step-label">Кредиты</div>
-        </div>
-        <div class="progress-step" data-step="4">
-            <div class="step-circle">4</div>
-            <div class="step-label">Доход</div>
-        </div>
-        <div class="progress-step" data-step="5">
-            <div class="step-circle">5</div>
-            <div class="step-label">Система</div>
+            5 простых шагов, которые приведут вас </p>к первым 100 000 рублей
         </div>
     </div>
 
@@ -1739,35 +1666,6 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.style.opacity = '0';
     });
     
-    // Прогресс-трекер
-    const progressSteps = document.querySelectorAll('.progress-step');
-    const progressBar = document.querySelector('.progress-tracker::after');
-    
-    progressSteps.forEach(step => {
-        step.addEventListener('click', () => {
-            const stepNumber = parseInt(step.getAttribute('data-step'));
-            
-            // Обновляем активный шаг
-            progressSteps.forEach(s => s.classList.remove('active'));
-            step.classList.add('active');
-            
-            // Обновляем прогресс-бар
-            const progressPercentage = (stepNumber - 1) / (progressSteps.length - 1) * 100;
-            document.documentElement.style.setProperty('--progress-width', `${progressPercentage}%`);
-            
-            // Прокручиваем к соответствующей карточке
-            const targetCard = document.querySelectorAll('.card')[stepNumber - 1];
-            if (targetCard) {
-                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
-                // Добавляем подсветку для привлечения внимания
-                targetCard.style.boxShadow = '0 0 0 3px rgba(255, 215, 0, 0.5)';
-                setTimeout(() => {
-                    targetCard.style.boxShadow = '';
-                }, 2000);
-            }
-        });
-    });
     
     // Инициализация прогресс-бара
     document.documentElement.style.setProperty('--progress-width', '0%');
